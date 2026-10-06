@@ -31,6 +31,7 @@ import {
 
 import ValueProps from '../components/common/ValueProps';
 import BrandLogos from '../components/common/BrandLogos';
+import AnimatedNumber from '../components/common/AnimatedNumber';
 import useScrollReveal from '../hooks/useScrollReveal';
 import { productCategories, testingProcedures, qualityCertifications, industrySolutions } from '../data/mockData';
 
@@ -211,7 +212,7 @@ export default function HomePage({ onOpenQuote, onOpenSearch, onSearchSubmit }) 
             >
               <path 
                 d="M0,0 C380,54 1060,54 1440,0 L1440,54 L0,54 Z" 
-                fill="#ffffff" 
+                fill="#f0f7ff" 
               />
             </svg>
           </div>
@@ -320,7 +321,7 @@ export default function HomePage({ onOpenQuote, onOpenSearch, onSearchSubmit }) 
         {/* Top Wave Curve */}
         <div className="compo-why-curve-top">
           <svg viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <path d="M0,48 C480,0 960,0 1440,48 L1440,0 L0,0 Z" fill="#ffffff" />
+            <path d="M0,48 C480,0 960,0 1440,48 L1440,0 L0,0 Z" fill="#edf5fc" />
           </svg>
         </div>
 
@@ -349,25 +350,25 @@ export default function HomePage({ onOpenQuote, onOpenSearch, onSearchSubmit }) 
 
               {/* Card 2 */}
               <div className="compo-why-card">
-                <div className="compo-why-icon-wrap">
-                  <Globe2 size={28} />
-                </div>
-                <h3 className="compo-why-card-title">Global Reach</h3>
-                <p className="compo-why-card-desc">
-                  A strong network of 5,000+ trusted suppliers and customers worldwide, ensuring competitive pricing and consistent supply.
-                </p>
-              </div>
+                 <div className="compo-why-icon-wrap">
+                   <Globe2 size={28} />
+                 </div>
+                 <h3 className="compo-why-card-title">Global Reach</h3>
+                 <p className="compo-why-card-desc">
+                   A strong network of <strong style={{ color: '#00f0ff', fontWeight: 700 }}><AnimatedNumber value="5,000+" /></strong> trusted suppliers and customers worldwide, ensuring competitive pricing and consistent supply.
+                 </p>
+               </div>
 
-              {/* Card 3 */}
-              <div className="compo-why-card">
-                <div className="compo-why-icon-wrap">
-                  <Users size={28} />
-                </div>
-                <h3 className="compo-why-card-title">Proven Semiconductor Expertise</h3>
-                <p className="compo-why-card-desc">
-                  21+ years of excellence in IC trading, backed by 300+ professionals committed to driving global impact.
-                </p>
-              </div>
+               {/* Card 3 */}
+               <div className="compo-why-card">
+                 <div className="compo-why-icon-wrap">
+                   <Users size={28} />
+                 </div>
+                 <h3 className="compo-why-card-title">Proven Semiconductor Expertise</h3>
+                 <p className="compo-why-card-desc">
+                   <strong style={{ color: '#00f0ff', fontWeight: 700 }}><AnimatedNumber value="21+" /></strong> years of excellence in IC trading, backed by <strong style={{ color: '#00f0ff', fontWeight: 700 }}><AnimatedNumber value="300+" /></strong> professionals committed to driving global impact.
+                 </p>
+               </div>
             </div>
           </div>
 
@@ -376,7 +377,7 @@ export default function HomePage({ onOpenQuote, onOpenSearch, onSearchSubmit }) 
         {/* Bottom Wave Curve */}
         <div className="compo-why-curve-bottom">
           <svg viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <path d="M0,0 C480,48 960,48 1440,0 L1440,48 L0,48 Z" fill="#ffffff" />
+            <path d="M0,0 C480,48 960,48 1440,0 L1440,48 L0,48 Z" fill="#edf6fd" />
           </svg>
         </div>
       </section>
@@ -399,7 +400,9 @@ export default function HomePage({ onOpenQuote, onOpenSearch, onSearchSubmit }) 
           <div className="compo-testing-grid reveal-stagger">
             {testingProcedures.map((proc, index) => (
               <div key={index} className="compo-testing-card">
-                <div className="compo-step-number">{proc.step}</div>
+                <div className="compo-step-number">
+                  <AnimatedNumber value={index + 1} prefix="0" />
+                </div>
                 <h4 className="compo-step-title">{proc.title}</h4>
                 <p className="compo-step-desc">{proc.desc}</p>
                 <div className="compo-step-indicator"></div>

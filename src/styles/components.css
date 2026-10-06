@@ -1,4 +1,14 @@
 /* =========================================================================
+   ANIMATED COUNTERS & NUMBERS
+   ========================================================================= */
+.compo-animated-number {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  will-change: contents;
+}
+
+/* =========================================================================
    MODAL & POPUP BACKDROP
    ========================================================================= */
 .compo-modal-backdrop,

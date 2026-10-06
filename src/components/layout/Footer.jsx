@@ -15,8 +15,9 @@ import {
 } from 'lucide-react';
 
 import Logo from '../common/Logo';
+import AnimatedNumber from '../common/AnimatedNumber';
 
-export default function Footer({ onOpenQuote, onOpenSearch }) {
+export default function Footer({ onOpenQuote, onOpenSearch, onNavigate }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -42,13 +43,13 @@ export default function Footer({ onOpenQuote, onOpenSearch }) {
                 <div className="compo-footer-cta-badge">
                   <span className="compo-badge-dot"></span>
                   <Zap size={14} className="text-cyan-animated" />
-                  <span>24-48H RAPID SOURCING &amp; ALLOCATION DESK</span>
+                  <span><AnimatedNumber value={24} />-48H RAPID SOURCING &amp; ALLOCATION DESK</span>
                 </div>
                 <h3 className="compo-footer-cta-title">
                   Need Hard-to-Find or Obsolete <span className="compo-title-highlight">Electronic Components?</span>
                 </h3>
                 <p className="compo-footer-cta-desc">
-                  Tap into 2,000,000+ line items with full factory traceability, certified CoC, in-house anti-counterfeit testing, and immediate dispatch.
+                  Tap into <strong style={{ color: '#00f0ff', fontWeight: 700 }}><AnimatedNumber value="2,000,000+" /></strong> line items with full factory traceability, certified CoC, in-house anti-counterfeit testing, and immediate dispatch.
                 </p>
               </div>
 
@@ -129,6 +130,19 @@ export default function Footer({ onOpenQuote, onOpenSearch }) {
                 <li><a href="#quality"><span className="compo-arrow-bullet">›</span><span>Electrical Parametric Testing</span></a></li>
                 <li><a href="#quality"><span className="compo-arrow-bullet">›</span><span>Solderability &amp; Coplanarity</span></a></li>
                 <li><a href="#about"><span className="compo-arrow-bullet">›</span><span>BOM Cost Optimization</span></a></li>
+                <li>
+                  <a 
+                    href="#team" 
+                    onClick={(e) => { 
+                      e.preventDefault(); 
+                      if (onNavigate) onNavigate('team'); 
+                    }}
+                    style={{ color: '#00f0ff', fontWeight: 600 }}
+                  >
+                    <span className="compo-arrow-bullet" style={{ color: '#00f0ff' }}>›</span>
+                    <span>Meet Our Expert Team</span>
+                  </a>
+                </li>
               </ul>
             </div>
 

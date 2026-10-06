@@ -1,40 +1,45 @@
 import React from 'react';
 import { ShieldCheck, Globe2, Award, Headphones } from 'lucide-react';
+import AnimatedNumber from './AnimatedNumber';
 
 export default function ValueProps() {
   const stats = [
     {
       id: 1,
-      title: '20+ Years',
+      num: 20,
+      suffix: '+ Years',
       subtitle: 'Industry Experience',
       icon: ShieldCheck,
       color: 'cyan'
     },
     {
       id: 2,
-      title: 'Global Supply',
-      subtitle: 'Network',
+      num: 150,
+      suffix: '+ Hubs',
+      subtitle: 'Global Supply Network',
       icon: Globe2,
       color: 'emerald'
     },
     {
       id: 3,
-      title: 'Quality Assured',
-      subtitle: 'Components',
+      num: 100,
+      suffix: '% Assured',
+      subtitle: 'Tested Original Parts',
       icon: Award,
       color: 'amber'
     },
     {
       id: 4,
-      title: 'Worldwide',
-      subtitle: 'Support',
+      num: 24,
+      suffix: '/7 Active',
+      subtitle: 'Worldwide Engineering Desk',
       icon: Headphones,
       color: 'violet'
     }
   ];
 
   return (
-    <div className="compo-hero-stats-row">
+    <div className="compo-hero-stats-row reveal-stagger">
       {stats.map((item) => {
         const Icon = item.icon;
         return (
@@ -44,7 +49,9 @@ export default function ValueProps() {
               <div className="compo-stat-glow"></div>
             </div>
             <div className="compo-stat-content">
-              <span className="compo-stat-title">{item.title}</span>
+              <span className="compo-stat-title">
+                <AnimatedNumber value={item.num} suffix={item.suffix} />
+              </span>
               <span className="compo-stat-subtitle">{item.subtitle}</span>
             </div>
           </div>

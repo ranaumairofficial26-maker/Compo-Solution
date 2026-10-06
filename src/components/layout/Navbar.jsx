@@ -15,12 +15,13 @@ import {
   Factory,
   Car,
   Wifi,
-  Sparkles
+  Sparkles,
+  Users
 } from 'lucide-react';
 
 import Logo from '../common/Logo';
 
-export default function Navbar({ onOpenQuote, onOpenSearch }) {
+export default function Navbar({ onOpenQuote, onOpenSearch, currentPage = 'home', onNavigate }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -33,11 +34,25 @@ export default function Navbar({ onOpenQuote, onOpenSearch }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (page, e) => {
+    if (page && onNavigate) {
+      if (e) e.preventDefault();
+      onNavigate(page);
+      setMobileMenuOpen(false);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   const navLinks = [
     { 
       name: 'Home', 
-      href: '#', 
-      active: true 
+      id: 'home',
+      active: currentPage === 'home' 
+    },
+    { 
+      name: 'Team', 
+      id: 'team',
+      active: currentPage === 'team'
     },
     { 
       name: 'Products', 
@@ -54,6 +69,7 @@ export default function Navbar({ onOpenQuote, onOpenSearch }) {
       hasDropdown: true,
       items: [
         { label: 'Company Overview', desc: 'Our heritage, mission, and vision', icon: ShieldCheck },
+        { label: 'Meet Our Expert Team', desc: 'Executive leadership & sourcing desks', icon: Users, action: 'team' },
         { label: 'Global Offices & Hubs', desc: 'Hong Kong, Shenzhen, Singapore & Europe', icon: Wifi },
       ]
     },
@@ -80,11 +96,16 @@ export default function Navbar({ onOpenQuote, onOpenSearch }) {
       <div className="compo-navbar-container">
         
         {/* LOGO */}
-        <a href="#" className="compo-logo" aria-label="COMPO Electronics Home">
+        <a 
+          href="#" 
+          className="compo-logo" 
+          aria-label="COMPO Electronics Home"
+          onClick={(e) => handleNavClick('home', e)}
+        >
           <Logo variant="white" />
         </a>
 
-        {/* DESKTOP NAVIGATION MENU */}
+        {/* DESKTOP NAV MENU */}
         <nav className="compo-nav-desktop" aria-label="Main Navigation">
           <ul className="compo-nav-list">
             {navLinks.map((item, idx) => (
@@ -95,8 +116,9 @@ export default function Navbar({ onOpenQuote, onOpenSearch }) {
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <a 
-                  href={item.href || '#'} 
+                  href={item.id ? `#${item.id}` : '#'} 
                   className={`compo-nav-link ${item.active ? 'active' : ''}`}
+                  onClick={(e) => item.id ? handleNavClick(item.id, e) : null}
                 >
                   <span>{item.name}</span>
                   {item.hasDropdown && (
@@ -111,7 +133,17 @@ export default function Navbar({ onOpenQuote, onOpenSearch }) {
                       {item.items.map((sub, sIdx) => {
                         const IconComponent = sub.icon;
                         return (
-                          <a key={sIdx} href="#" className="compo-dropdown-item">
+                          <a 
+                            key={sIdx} 
+                            href="#" 
+                            className="compo-dropdown-item"
+                            onClick={(e) => {
+                              if (sub.action) {
+                                handleNavClick(sub.action, e);
+                                setActiveDropdown(null);
+                              }
+                            }}
+                          >
                             <div className="compo-dropdown-icon">
                               <IconComponent size={18} />
                             </div>
@@ -142,11 +174,6 @@ export default function Navbar({ onOpenQuote, onOpenSearch }) {
             <Search size={18} />
           </button>
 
-          {/* Contact Us Button */}
-          <a href="#contact" className="compo-btn compo-btn-outline">
-            Contact Us
-          </a>
-
           {/* Request a Quote Button */}
           <button 
             className="compo-btn compo-btn-primary"
@@ -174,11 +201,18 @@ export default function Navbar({ onOpenQuote, onOpenSearch }) {
             {navLinks.map((item, idx) => (
               <div key={idx} className="compo-mobile-nav-group">
                 <a 
-                  href="#" 
+                  href={item.id ? `#${item.id}` : '#'} 
                   className={`compo-mobile-nav-link ${item.active ? 'active' : ''}`}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    if (item.id) {
+                      handleNavClick(item.id, e);
+                    } else {
+                      setMobileMenuOpen(false);
+                    }
+                  }}
                 >
-                  {item.name}
+                  <span>{item.name}</span>
+                  {item.active && <span className="text-cyan-400 font-bold">&bull;</span>}
                 </a>
               </div>
             ))}
