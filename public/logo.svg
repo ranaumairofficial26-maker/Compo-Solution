@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 100" fill="none">
+  <defs>
+    <linearGradient id="compoBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0066e6" />
+      <stop offset="100%" stop-color="#0099ff" />
+    </linearGradient>
+    <linearGradient id="compoCyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00e5ff" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <filter id="subtleGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0088ff" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- COMPO Italic Bold Main Wordmark -->
+  <text 
+    x="10" 
+    y="52" 
+    font-family="'Montserrat', 'Arial Black', sans-serif" 
+    font-size="54" 
+    font-weight="900" 
+    font-style="italic" 
+    letter-spacing="-1.5px" 
+    fill="url(#compoBlueGrad)"
+    filter="url(#subtleGlow)"
+  >
+    COMPO
+  </text>
+
+  <!-- Horizontal Tech Divider Line -->
+  <line 
+    x1="10" 
+    y1="64" 
+    x2="330" 
+    y2="64" 
+    stroke="url(#compoBlueGrad)" 
+    stroke-width="4.5" 
+    stroke-linecap="round"
+  />
+
+  <!-- ELECTRONICS Subtitle Tech Font -->
+  <text 
+    x="12" 
+    y="88" 
+    font-family="'Montserrat', 'Arial Black', sans-serif" 
+    font-size="21" 
+    font-weight="900" 
+    font-style="italic" 
+    letter-spacing="5.5px" 
+    fill="url(#compoBlueGrad)"
+  >
+    ELECTRONICS
+  </text>
+</svg>

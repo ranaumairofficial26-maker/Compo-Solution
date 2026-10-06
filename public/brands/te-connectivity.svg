@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 60" fill="none">
+  <g transform="translate(10, 10)">
+    <rect width="40" height="40" rx="4" fill="#E87722" />
+    <text x="7" y="28" font-family="'Montserrat', Arial, sans-serif" font-size="22" font-weight="900" fill="#FFFFFF" letter-spacing="-1">TE</text>
+  </g>
+  <text x="60" y="38" font-family="'Montserrat', Arial, sans-serif" font-size="21" font-weight="800" fill="#0B1A30" letter-spacing="-0.5">connectivity</text>
+</svg>
