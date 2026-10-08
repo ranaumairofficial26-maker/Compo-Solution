@@ -71,71 +71,83 @@ export default function BusinessModelsSection({ onOpenQuote }) {
                   {/* Glowing Ambient Corner Accent */}
                   <div className="compo-bm-card-glow"></div>
 
-                  {/* Card Header */}
-                  <div className="compo-bm-card-head">
-                    <div className="compo-bm-icon-box">
-                      {isExcess ? (
-                        <PackageCheck size={28} className="text-emerald-400" />
-                      ) : (
-                        <TrendingDown size={28} className="text-cyan-400" />
-                      )}
+                  {/* Top Image Showcase Box */}
+                  <div className="compo-bm-img-box">
+                    <img 
+                      src={bm.image} 
+                      alt={bm.title} 
+                      className="compo-bm-img" 
+                      loading="lazy" 
+                    />
+                    <div className="compo-bm-img-overlay"></div>
+                    <div className="compo-bm-img-badges">
+                      <span className={`compo-bm-badge compo-badge-${bm.color}`}>
+                        {isExcess ? (
+                          <PackageCheck size={14} className="text-emerald-400" />
+                        ) : (
+                          <TrendingDown size={14} className="text-cyan-400" />
+                        )}
+                        <span>{bm.tag}</span>
+                      </span>
+                      <span className="compo-bm-sla-pill">{bm.badge}</span>
                     </div>
-                    <div>
-                      <span className="compo-bm-card-tag">{bm.tag}</span>
+                  </div>
+
+                  {/* Card Content Body */}
+                  <div className="compo-bm-body">
+                    <div className="compo-bm-title-row">
                       <h3 className="compo-bm-card-title">{bm.title}</h3>
+                      <p className="compo-bm-card-subtitle">{bm.subtitle}</p>
                     </div>
-                  </div>
 
-                  <p className="compo-bm-card-subtitle">{bm.subtitle}</p>
-                  <p className="compo-bm-card-text">{bm.description}</p>
-
-                  {/* 3 Live Metric HUD Badges */}
-                  <div className="compo-bm-stats-row">
-                    {bm.keyStats.map((stat, idx) => (
-                      <div key={idx} className="compo-bm-stat-item">
-                        <div className="compo-bm-stat-val-wrap">
-                          <span className="compo-bm-stat-val">
-                            <AnimatedNumber 
-                              value={stat.num} 
-                              prefix={stat.prefix || ''} 
-                              suffix={stat.suffix || ''} 
-                            />
-                          </span>
-                        </div>
-                        <span className="compo-bm-stat-lbl">{stat.label}</span>
-                        <div className="compo-bm-stat-line"></div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* 4 Feature Pillars (How Our Program Works) */}
-                  <div className="compo-bm-features-list">
-                    <div className="compo-bm-features-header">
-                      <span className="compo-bm-features-tag">PROGRAM EXECUTION</span>
-                      <h4 className="compo-bm-features-title">How Our Program Works:</h4>
-                    </div>
-                    <div className="compo-bm-features-grid">
-                      {bm.features.map((feat, idx) => (
-                        <div key={idx} className="compo-bm-feature-item">
-                          <div className="compo-bm-step-badge">{feat.step}</div>
-                          <div className="compo-bm-feat-body">
-                            <h5 className="compo-bm-feat-title">{feat.title}</h5>
-                            <p className="compo-bm-feat-desc">{feat.desc}</p>
+                    {/* 3 Live Metric HUD Badges */}
+                    <div className="compo-bm-stats-row">
+                      {bm.keyStats.map((stat, idx) => (
+                        <div key={idx} className="compo-bm-stat-item">
+                          <div className="compo-bm-stat-val-wrap">
+                            <span className="compo-bm-stat-val">
+                              <AnimatedNumber 
+                                value={stat.num} 
+                                prefix={stat.prefix || ''} 
+                                suffix={stat.suffix || ''} 
+                              />
+                            </span>
                           </div>
+                          <span className="compo-bm-stat-lbl">{stat.label}</span>
+                          <div className="compo-bm-stat-line"></div>
                         </div>
                       ))}
                     </div>
-                  </div>
 
-                  {/* Card Footer CTA */}
-                  <div className="compo-bm-card-actions">
-                    <button 
-                      className={`compo-btn compo-btn-lg ${isExcess ? 'compo-btn-emerald' : 'compo-btn-cyan-glow'} w-full`}
-                      onClick={onOpenQuote}
-                    >
-                      <span>{bm.ctaText}</span>
-                      <ArrowRight size={18} className="compo-btn-arrow-shift" />
-                    </button>
+                    {/* 4 Feature Pillars (How Our Program Works) */}
+                    <div className="compo-bm-features-list">
+                      <div className="compo-bm-features-header">
+                        <span className="compo-bm-features-tag">PROGRAM EXECUTION</span>
+                        <h4 className="compo-bm-features-title">How Our Program Works:</h4>
+                      </div>
+                      <div className="compo-bm-features-grid">
+                        {bm.features.map((feat, idx) => (
+                          <div key={idx} className="compo-bm-feature-item">
+                            <div className="compo-bm-step-badge">{feat.step}</div>
+                            <div className="compo-bm-feat-body">
+                              <h5 className="compo-bm-feat-title">{feat.title}</h5>
+                              <p className="compo-bm-feat-desc">{feat.desc}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Card Footer CTA */}
+                    <div className="compo-bm-card-actions">
+                      <button 
+                        className={`compo-btn compo-btn-lg ${isExcess ? 'compo-btn-emerald' : 'compo-btn-cyan-glow'} w-full`}
+                        onClick={onOpenQuote}
+                      >
+                        <span>{bm.ctaText}</span>
+                        <ArrowRight size={18} className="compo-btn-arrow-shift" />
+                      </button>
+                    </div>
                   </div>
 
                 </div>

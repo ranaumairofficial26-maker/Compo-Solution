@@ -92,37 +92,38 @@ export const serverPartsList = [
 export const businessModels = [
   {
     id: 'excess',
-    tag: 'SURPLUS ASSET RECOVERY & INVENTORY LIQUIDATION',
+    tag: 'SURPLUS ASSET RECOVERY',
     title: 'EXCESS Inventory Management',
-    subtitle: 'Unlock Trapped Working Capital from Surplus Electronic Components & Server Hardware',
+    subtitle: 'Transform surplus lots & idle electronic stock into immediate capital liquidity.',
+    image: '/business-models/excess-inventory.jpg',
+    badge: 'ESD Warehouse Logistics',
     icon: 'PackageCheck',
     color: 'emerald',
-    description: 'Transform obsolete, cancelled, and slow-moving manufacturing lots into immediate cash flow. Whether you require an outright asset buyout or a managed consignment agreement, COMPO delivers maximum recovery yields while protecting your brand privacy.',
     keyStats: [
-      { num: 120, prefix: '$', suffix: 'M+', label: 'Annual Capital Recovered' },
-      { num: 24, suffix: 'h', label: 'Rapid Lot Valuation SLA' },
-      { num: 100, suffix: '%', label: 'Brand & Channel Protection' }
+      { num: 120, prefix: '$', suffix: 'M+', label: 'Recovered Capital' },
+      { num: 24, suffix: 'h', label: 'Valuation SLA' },
+      { num: 100, suffix: '%', label: 'Channel Privacy' }
     ],
     features: [
       {
         step: '01',
         title: 'Outright Cash Lot Buyout',
-        desc: 'Immediate full lot purchase and expedited warehouse freight collection for instant balance-sheet clearing.'
+        desc: 'Immediate full purchase & freight collection for rapid balance-sheet clearing.'
       },
       {
         step: '02',
         title: 'High-Yield Consignment Model',
-        desc: 'Parts stored in ISO 9001 ESD warehouses and marketed globally across 5,000+ verified buyers for up to 85% recovery.'
+        desc: 'Stored in ISO 9001 ESD hubs & marketed to 5,000+ buyers for up to 85% return.'
       },
       {
         step: '03',
-        title: 'Line-by-Line Revenue Sharing',
-        desc: 'Transparent real-time portal reporting every sale, lot traceability, and monthly automated profit disbursements.'
+        title: 'Real-Time Revenue Sharing',
+        desc: 'Live transparent portal tracking with automated monthly profit disbursements.'
       },
       {
         step: '04',
-        title: 'Zero Scrap & Zero Waste Compliance',
-        desc: 'Responsible ESG lifecycle management compliant with WEEE and zero-landfill electronic standards.'
+        title: 'Zero Scrap & ESG Compliance',
+        desc: 'Responsible lifecycle management compliant with global WEEE standards.'
       }
     ],
     ctaText: 'Submit Excess Inventory List',
@@ -130,37 +131,38 @@ export const businessModels = [
   },
   {
     id: 'ppv',
-    tag: 'BOM COST OPTIMIZATION & ARBITRAGE DESK',
+    tag: 'BOM COST OPTIMIZATION',
     title: 'PPV (Purchase Price Variance) Solutions',
-    subtitle: 'Procure Production BOM Components Below Contract Prices to Drive Direct Bottom-Line Margins',
+    subtitle: 'Procure production BOM components 15%–35% below contract prices.',
+    image: '/business-models/ppv-sourcing.jpg',
+    badge: 'Trading & Arbitrage Desk',
     icon: 'TrendingDown',
     color: 'cyan',
-    description: 'When market conditions soften or inventory imbalances occur across global hubs, COMPO uses high-volume purchasing power to capture factory over-runs and Tier-1 allocations, delivering substantial cost savings without compromising authenticity.',
     keyStats: [
-      { num: 28, suffix: '%', label: 'Average BOM PPV Savings' },
-      { num: 50000, suffix: '+', label: 'Tracked Cost-Down Parts' },
-      { num: 100, suffix: '%', label: 'Traceable Factory CoC' },
+      { num: 28, suffix: '%', label: 'Average BOM Savings' },
+      { num: 50000, suffix: '+', label: 'Tracked Active Parts' },
+      { num: 100, suffix: '%', label: 'Factory CoC Traceable' },
     ],
     features: [
       {
         step: '01',
         title: 'Spot-Market Arbitrage Sourcing',
-        desc: 'Identify regional supply-demand discrepancies to source active ICs and server parts 15% to 35% below distributor book prices.'
+        desc: 'Capture regional price variances for active ICs 15% to 35% below book price.'
       },
       {
         step: '02',
         title: 'Tier-1 Factory Lot Allocations',
-        desc: 'Direct access to OEM/EMS manufacturing surpluses, tape-and-reel original packaging, and sealed manufacturer lots.'
+        desc: 'Direct access to OEM/EMS manufacturing surpluses in sealed original packaging.'
       },
       {
         step: '03',
-        title: 'Full Analytical QA Guarantee',
-        desc: 'Every PPV-sourced item is 100% inspected in our in-house test labs with optical, X-ray, and electrical verification.'
+        title: 'Full In-House QA Guarantee',
+        desc: '100% inspected in our testing labs with optical, X-ray & parametric verification.'
       },
       {
         step: '04',
-        title: 'Long-Term Scheduled Deliveries',
-        desc: 'Lock in favourable spot pricing and arrange scheduled JIT deliveries over 6 to 12 months with price protection.'
+        title: 'Scheduled JIT Deliveries',
+        desc: 'Lock in spot pricing with 6 to 12 months scheduled deliveries and price protection.'
       }
     ],
     ctaText: 'Request PPV Cost-Down Analysis',
