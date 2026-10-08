@@ -33,6 +33,8 @@ import ValueProps from '../components/common/ValueProps';
 import BrandLogos from '../components/common/BrandLogos';
 import AnimatedNumber from '../components/common/AnimatedNumber';
 import useScrollReveal from '../hooks/useScrollReveal';
+import ServerPartsSection from '../components/home/ServerPartsSection';
+import BusinessModelsSection from '../components/home/BusinessModelsSection';
 import { productCategories, testingProcedures, qualityCertifications, industrySolutions } from '../data/mockData';
 
 export default function HomePage({ onOpenQuote, onOpenSearch, onSearchSubmit }) {
@@ -309,6 +311,14 @@ export default function HomePage({ onOpenQuote, onOpenSearch, onSearchSubmit }) 
       </section>
 
       {/* =========================================================================
+          SERVER PARTS (CPU, MEMORY, SSD, HDD, GPU, NIC)
+         ========================================================================= */}
+      <ServerPartsSection 
+        onOpenQuote={onOpenQuote} 
+        onOpenSearch={onOpenSearch} 
+      />
+
+      {/* =========================================================================
           WHY COMPO SECTION (MATCHES SCREENSHOT)
          ========================================================================= */}
       <section className="compo-why-section" id="about">
@@ -513,6 +523,12 @@ export default function HomePage({ onOpenQuote, onOpenSearch, onSearchSubmit }) 
       </section>
 
       {/* =========================================================================
+          EXCESS & PPV BUSINESS MODELS
+         ========================================================================= */}
+      <BusinessModelsSection 
+        onOpenQuote={onOpenQuote} 
+      />
+
       {/* =========================================================================
           INDUSTRIES WE SERVE SECTION (MATCHES SCREENSHOT)
          ========================================================================= */}

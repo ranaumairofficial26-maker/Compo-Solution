@@ -16,7 +16,10 @@ import {
   Car,
   Wifi,
   Sparkles,
-  Users
+  Users,
+  Server,
+  TrendingDown,
+  PackageCheck
 } from 'lucide-react';
 
 import Logo from '../common/Logo';
@@ -58,10 +61,19 @@ export default function Navbar({ onOpenQuote, onOpenSearch, currentPage = 'home'
       name: 'Products', 
       hasDropdown: true,
       items: [
+        { label: 'Server Parts & Compute', desc: 'CPU, MEMORY, SSD, HDD, GPU, NIC Cards', icon: Server, href: '#server-parts' },
         { label: 'Semiconductors & ICs', desc: 'MCUs, DSPs, Memory, Power ICs', icon: Cpu },
         { label: 'Passive Components', desc: 'High-Q MLCCs, Resistors, Inductors', icon: Layers },
         { label: 'Connectors & Interconnect', desc: 'Automotive, Headers, Terminal blocks', icon: Cable },
         { label: 'Sensors & Transducers', desc: 'Pressure, MEMS, Thermal, Gas sensors', icon: Radio },
+      ]
+    },
+    { 
+      name: 'Business Models', 
+      hasDropdown: true,
+      items: [
+        { label: 'EXCESS Inventory Recovery', desc: 'Lot liquidation, consignment, fast capital recovery', icon: PackageCheck, href: '#business-models' },
+        { label: 'PPV Cost-Down Sourcing', desc: '10–35% BOM price reduction & hedge purchasing', icon: TrendingDown, href: '#business-models' },
       ]
     },
     { 
@@ -135,12 +147,27 @@ export default function Navbar({ onOpenQuote, onOpenSearch, currentPage = 'home'
                         return (
                           <a 
                             key={sIdx} 
-                            href="#" 
+                            href={sub.href || "#"} 
                             className="compo-dropdown-item"
                             onClick={(e) => {
                               if (sub.action) {
                                 handleNavClick(sub.action, e);
                                 setActiveDropdown(null);
+                              } else if (sub.href) {
+                                setActiveDropdown(null);
+                                if (currentPage !== 'home') {
+                                  handleNavClick('home', e);
+                                  setTimeout(() => {
+                                    const el = document.querySelector(sub.href);
+                                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                                  }, 150);
+                                } else {
+                                  const el = document.querySelector(sub.href);
+                                  if (el) {
+                                    e.preventDefault();
+                                    el.scrollIntoView({ behavior: 'smooth' });
+                                  }
+                                }
                               }
                             }}
                           >

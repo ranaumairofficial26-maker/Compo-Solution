@@ -35,7 +35,8 @@
 
 /* Modal Window */
 .compo-modal-container {
-  background: #ffffff;
+  background: linear-gradient(165deg, #ffffff 0%, #f4f9fe 100%);
+  border: 1.5px solid #bae6fd;
   border-radius: var(--radius-xl);
   max-width: 680px;
   width: 100%;
