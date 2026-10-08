@@ -339,12 +339,13 @@
    ========================================================================= */
 .compo-brands-section {
   background: 
-    radial-gradient(ellipse 70% 40% at 50% -10%, rgba(2, 132, 199, 0.12), transparent),
-    radial-gradient(rgba(2, 132, 199, 0.08) 1px, transparent 1px),
-    linear-gradient(180deg, #f0f7ff 0%, #f9fcff 50%, #edf6fd 100%);
-  background-size: 100% 100%, 24px 24px, 100% 100%;
-  border-bottom: 1.5px solid #dbeafe;
-  padding: 56px 0 46px;
+    radial-gradient(circle at 18% 30%, rgba(0, 240, 255, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 82% 65%, rgba(2, 132, 199, 0.16) 0%, transparent 48%),
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(186, 230, 253, 0.4) 0%, transparent 70%),
+    radial-gradient(rgba(2, 132, 199, 0.11) 1.2px, transparent 1.2px) 0 0 / 24px 24px,
+    linear-gradient(180deg, #dbeafe 0%, #ebf5fe 45%, #e1effc 100%);
+  border-bottom: 1.5px solid #bfdbfe;
+  padding: 58px 0 48px;
   position: relative;
   overflow: hidden;
 }

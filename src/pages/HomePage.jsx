@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Search, 
   ArrowRight, 
@@ -43,6 +43,37 @@ export default function HomePage({ onOpenQuote, onOpenSearch, onSearchSubmit }) 
 
   const [heroSearchInput, setHeroSearchInput] = useState('');
   const [activeSlide, setActiveSlide] = useState(0);
+  const industryVideoRef = useRef(null);
+
+  // Auto-pause video when scrolled away / auto-resume when in view
+  useEffect(() => {
+    const videoEl = industryVideoRef.current;
+    if (!videoEl) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const playPromise = videoEl.play();
+            if (playPromise !== undefined) {
+              playPromise.catch(() => {});
+            }
+          } else {
+            videoEl.pause();
+          }
+        });
+      },
+      {
+        threshold: 0.2 // Pauses as soon as video scrolls out of view
+      }
+    );
+
+    observer.observe(videoEl);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   const heroSlides = [
     {
@@ -214,7 +245,7 @@ export default function HomePage({ onOpenQuote, onOpenSearch, onSearchSubmit }) 
             >
               <path 
                 d="M0,0 C380,54 1060,54 1440,0 L1440,54 L0,54 Z" 
-                fill="#f0f7ff" 
+                fill="#dbeafe" 
               />
             </svg>
           </div>
@@ -233,15 +264,119 @@ export default function HomePage({ onOpenQuote, onOpenSearch, onSearchSubmit }) 
       <section className="compo-section compo-what-we-do-section" id="products">
         <div className="compo-container">
           
-          <div className="compo-what-we-do-header reveal-on-scroll">
-            <div className="compo-what-we-do-tag">WHAT COMPO DOES</div>
-            <h2 className="compo-what-we-do-title">More Than Component Supply</h2>
-            <p className="compo-what-we-do-desc">
-              We connect products, suppliers, industries and global markets.
-            </p>
+          {/* 2-Column Industry Spotlight: Left Story & Right Live Cleanroom/SMT Video */}
+          <div className="compo-industry-spotlight reveal-on-scroll">
+            
+            {/* Left Column: Industry Text & Highlights */}
+            <div className="compo-industry-text-col">
+              <div className="compo-what-we-do-tag">
+                <span className="compo-tag-live-dot" aria-hidden="true"></span>
+                <span>WHAT COMPO DOES • GLOBAL ELECTRONICS SUPPLY</span>
+              </div>
+              
+              <h2 className="compo-what-we-do-title">
+                More Than Component Supply — <span className="compo-title-highlight-dark">Powering Global Tech</span>
+              </h2>
+
+              <p className="compo-industry-lead-text">
+                COMPO Electronics is a premier global independent distributor of high-reliability semiconductors and critical electronic components. We eliminate supply bottlenecks, accelerate production lifecycles, and deliver authentic factory-sealed allocations to tier-1 aerospace, automotive, medical, and hyperscale data center innovators.
+              </p>
+
+              <p className="compo-industry-sub-text">
+                With real-time access to 50M+ verified line items and in-house ISO 9001:2015 &amp; AS9120B certified QA testing laboratories, we subject every reel and tray to rigorous parametric testing, X-ray die inspection, and strict anti-counterfeit protocols. Whether managing rapid shortage procurement or surplus asset recovery, COMPO connects your production line with guaranteed zero-defect components.
+              </p>
+
+              {/* 4 Quick Industry Badges */}
+              <div className="compo-industry-badges-grid">
+                <div className="compo-ind-badge-item">
+                  <ShieldCheck size={16} className="text-cyan-600" />
+                  <span>100% Traceability &amp; CoC Reports</span>
+                </div>
+                <div className="compo-ind-badge-item">
+                  <Award size={16} className="text-emerald-600" />
+                  <span>ISO 9001 &amp; AS9120B QA Lab</span>
+                </div>
+                <div className="compo-ind-badge-item">
+                  <Zap size={16} className="text-amber-600" />
+                  <span>2-4h Rapid BOM Cost Valuation</span>
+                </div>
+                <div className="compo-ind-badge-item">
+                  <Globe2 size={16} className="text-blue-600" />
+                  <span>5,000+ Verified Global Partners</span>
+                </div>
+              </div>
+
+              {/* CTA Row */}
+              <div className="compo-industry-cta-row">
+                <button 
+                  className="compo-btn compo-btn-primary compo-btn-glow"
+                  onClick={onOpenQuote}
+                >
+                  <span>Request Component Sourcing</span>
+                  <ArrowRight size={16} />
+                </button>
+                <a href="#services-grid" className="compo-btn compo-btn-glass-subtle">
+                  <span>Explore Capabilities</span>
+                  <ArrowRight size={15} />
+                </a>
+              </div>
+            </div>
+
+            {/* Right Column: High-Tech Video Showcase Card */}
+            <div className="compo-industry-video-col">
+              <div className="compo-video-showcase-card">
+                
+                {/* HUD Top Bar */}
+                <div className="compo-video-hud-header">
+                  <div className="compo-video-status">
+                    <span className="compo-video-rec-dot"></span>
+                    <span className="compo-video-rec-text">LIVE LAB FEED: CLEANROOM &amp; SMT TESTING</span>
+                  </div>
+                  <span className="compo-video-quality-tag">4K UHD • 60 FPS</span>
+                </div>
+
+                {/* Video Container with Responsive 16:9 Aspect Ratio */}
+                <div className="compo-video-frame-wrap">
+                  <video 
+                    ref={industryVideoRef}
+                    className="compo-industry-video-player"
+                    src="/compo-Video.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    controls
+                    preload="auto"
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+
+                  {/* High-Tech Cyber Corner Accents */}
+                  <div className="compo-cyber-corner top-left"></div>
+                  <div className="compo-cyber-corner top-right"></div>
+                  <div className="compo-cyber-corner bottom-left"></div>
+                  <div className="compo-cyber-corner bottom-right"></div>
+                </div>
+
+                {/* Video Info Footer */}
+                <div className="compo-video-hud-footer">
+                  <div className="compo-video-desc-wrap">
+                    <div className="compo-video-title-row">
+                      <Activity size={16} className="text-cyan-400" />
+                      <h4 className="compo-video-title">COMPO Advanced Fabrication &amp; Parametric Testing</h4>
+                    </div>
+                    <p className="compo-video-subtitle">
+                      Automated Optical Inspection (AOI) • X-Ray Die Verification • Decapsulation &amp; Solderability
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
           </div>
 
-          <div className="compo-what-we-do-grid reveal-stagger">
+          <div className="compo-what-we-do-grid reveal-stagger" id="services-grid">
             {/* Card 1: Component Sourcing */}
             <div className="compo-what-card">
               <div className="compo-what-card-top">
@@ -331,7 +466,7 @@ export default function HomePage({ onOpenQuote, onOpenSearch, onSearchSubmit }) 
         {/* Top Wave Curve */}
         <div className="compo-why-curve-top">
           <svg viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <path d="M0,48 C480,0 960,0 1440,48 L1440,0 L0,0 Z" fill="#edf5fc" />
+            <path d="M0,48 C480,0 960,0 1440,48 L1440,0 L0,0 Z" fill="#d8eaf9" />
           </svg>
         </div>
 

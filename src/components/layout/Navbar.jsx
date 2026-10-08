@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Search, 
-  ChevronDown, 
-  Menu, 
-  X, 
-  Cpu, 
-  Layers, 
-  ShieldCheck, 
-  Activity, 
-  PhoneCall, 
+import {
+  Search,
+  ChevronDown,
+  Menu,
+  X,
+  Cpu,
+  Layers,
+  ShieldCheck,
+  Activity,
+  PhoneCall,
   FileText,
   Radio,
   Cable,
@@ -47,18 +47,18 @@ export default function Navbar({ onOpenQuote, onOpenSearch, currentPage = 'home'
   };
 
   const navLinks = [
-    { 
-      name: 'Home', 
+    {
+      name: 'Home',
       id: 'home',
-      active: currentPage === 'home' 
+      active: currentPage === 'home'
     },
-    { 
-      name: 'Team', 
+    {
+      name: 'Team',
       id: 'team',
       active: currentPage === 'team'
     },
-    { 
-      name: 'Products', 
+    {
+      name: 'Products',
       hasDropdown: true,
       items: [
         { label: 'Server Parts & Compute', desc: 'CPU, MEMORY, SSD, HDD, GPU, NIC Cards', icon: Server, href: '#server-parts' },
@@ -68,16 +68,16 @@ export default function Navbar({ onOpenQuote, onOpenSearch, currentPage = 'home'
         { label: 'Sensors & Transducers', desc: 'Pressure, MEMS, Thermal, Gas sensors', icon: Radio },
       ]
     },
-    { 
-      name: 'Business Models', 
+    {
+      name: 'Business Models',
       hasDropdown: true,
       items: [
         { label: 'EXCESS Inventory Recovery', desc: 'Lot liquidation, consignment, fast capital recovery', icon: PackageCheck, href: '#business-models' },
         { label: 'PPV Cost-Down Sourcing', desc: '10–35% BOM price reduction & hedge purchasing', icon: TrendingDown, href: '#business-models' },
       ]
     },
-    { 
-      name: 'About Us', 
+    {
+      name: 'About Us',
       hasDropdown: true,
       items: [
         { label: 'Company Overview', desc: 'Our heritage, mission, and vision', icon: ShieldCheck },
@@ -85,16 +85,16 @@ export default function Navbar({ onOpenQuote, onOpenSearch, currentPage = 'home'
         { label: 'Global Offices & Hubs', desc: 'Hong Kong, Shenzhen, Singapore & Europe', icon: Wifi },
       ]
     },
-    { 
-      name: 'Quality', 
+    {
+      name: 'Quality',
       hasDropdown: true,
       items: [
         { label: 'Quality Assurance System', desc: 'ISO 9001 & AS9120 Certified process', icon: ShieldCheck },
         { label: 'Testing Lab & Inspection', desc: '3-tier Anti-Counterfeit Verification', icon: Activity },
       ]
     },
-    { 
-      name: 'Insights', 
+    {
+      name: 'Insights',
       hasDropdown: true,
       items: [
         { label: 'Market Intelligence Reports', desc: 'Lead time trends & price analysis', icon: FileText },
@@ -106,11 +106,11 @@ export default function Navbar({ onOpenQuote, onOpenSearch, currentPage = 'home'
   return (
     <header className={`compo-navbar-wrapper ${isScrolled ? 'scrolled' : ''}`}>
       <div className="compo-navbar-container">
-        
+
         {/* LOGO */}
-        <a 
-          href="#" 
-          className="compo-logo" 
+        <a
+          href="#"
+          className="compo-logo"
           aria-label="COMPO Electronics Home"
           onClick={(e) => handleNavClick('home', e)}
         >
@@ -121,14 +121,14 @@ export default function Navbar({ onOpenQuote, onOpenSearch, currentPage = 'home'
         <nav className="compo-nav-desktop" aria-label="Main Navigation">
           <ul className="compo-nav-list">
             {navLinks.map((item, idx) => (
-              <li 
-                key={idx} 
+              <li
+                key={idx}
                 className={`compo-nav-item ${item.hasDropdown ? 'has-dropdown' : ''}`}
                 onMouseEnter={() => item.hasDropdown && setActiveDropdown(item.name)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <a 
-                  href={item.id ? `#${item.id}` : '#'} 
+                <a
+                  href={item.id ? `#${item.id}` : '#'}
                   className={`compo-nav-link ${item.active ? 'active' : ''}`}
                   onClick={(e) => item.id ? handleNavClick(item.id, e) : null}
                 >
@@ -145,9 +145,9 @@ export default function Navbar({ onOpenQuote, onOpenSearch, currentPage = 'home'
                       {item.items.map((sub, sIdx) => {
                         const IconComponent = sub.icon;
                         return (
-                          <a 
-                            key={sIdx} 
-                            href={sub.href || "#"} 
+                          <a
+                            key={sIdx}
+                            href={sub.href || "#"}
                             className="compo-dropdown-item"
                             onClick={(e) => {
                               if (sub.action) {
@@ -192,9 +192,9 @@ export default function Navbar({ onOpenQuote, onOpenSearch, currentPage = 'home'
         {/* HEADER ACTIONS */}
         <div className="compo-nav-actions">
           {/* Search Trigger Button */}
-          <button 
-            className="compo-search-trigger" 
-            onClick={onOpenSearch} 
+          <button
+            className="compo-search-trigger"
+            onClick={onOpenSearch}
             title="Search Components"
             aria-label="Search"
           >
@@ -202,7 +202,7 @@ export default function Navbar({ onOpenQuote, onOpenSearch, currentPage = 'home'
           </button>
 
           {/* Request a Quote Button */}
-          <button 
+          <button
             className="compo-btn compo-btn-primary"
             onClick={onOpenQuote}
           >
@@ -210,7 +210,7 @@ export default function Navbar({ onOpenQuote, onOpenSearch, currentPage = 'home'
           </button>
 
           {/* Mobile Menu Hamburger */}
-          <button 
+          <button
             className="compo-mobile-toggle"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Navigation Menu"
@@ -227,8 +227,8 @@ export default function Navbar({ onOpenQuote, onOpenSearch, currentPage = 'home'
           <div className="compo-mobile-nav">
             {navLinks.map((item, idx) => (
               <div key={idx} className="compo-mobile-nav-group">
-                <a 
-                  href={item.id ? `#${item.id}` : '#'} 
+                <a
+                  href={item.id ? `#${item.id}` : '#'}
                   className={`compo-mobile-nav-link ${item.active ? 'active' : ''}`}
                   onClick={(e) => {
                     if (item.id) {
@@ -244,7 +244,7 @@ export default function Navbar({ onOpenQuote, onOpenSearch, currentPage = 'home'
               </div>
             ))}
             <div className="compo-mobile-actions">
-              <button 
+              <button
                 className="compo-btn compo-btn-outline w-full"
                 onClick={() => {
                   setMobileMenuOpen(false);
@@ -253,7 +253,7 @@ export default function Navbar({ onOpenQuote, onOpenSearch, currentPage = 'home'
               >
                 Search Part Numbers
               </button>
-              <button 
+              <button
                 className="compo-btn compo-btn-primary w-full"
                 onClick={() => {
                   setMobileMenuOpen(false);

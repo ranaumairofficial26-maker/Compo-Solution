@@ -19,10 +19,10 @@ export default function ServerPartsSection({ onOpenQuote, onOpenSearch }) {
   const [activeFilter, setActiveFilter] = useState('all');
 
   const filterTabs = [
-    { id: 'all', label: 'All Server Hardware', count: serverPartsList.length },
-    { id: 'compute', label: 'Compute & AI (CPU, GPU)', count: 2 },
-    { id: 'storage', label: 'Storage & RAM (SSD, HDD, MEMORY)', count: 3 },
-    { id: 'network', label: 'Networking (NIC Cards)', count: 1 }
+    { id: 'all', label: 'All Server Hardware', icon: Server, count: serverPartsList.length },
+    { id: 'compute', label: 'Compute & AI', sub: '(CPU, GPU)', icon: Cpu, count: 2 },
+    { id: 'storage', label: 'Storage & RAM', sub: '(SSD, HDD, MEM)', icon: HardDrive, count: 3 },
+    { id: 'network', label: 'Networking', sub: '(NIC Cards)', icon: Zap, count: 1 }
   ];
 
   const filteredParts = serverPartsList.filter(part => {
@@ -40,11 +40,12 @@ export default function ServerPartsSection({ onOpenQuote, onOpenSearch }) {
         {/* Section Header */}
         <div className="compo-server-header text-center reveal-on-scroll">
           <div className="compo-server-tag">
-            <Server size={14} className="text-cyan-400" />
+            <span className="compo-server-tag-dot" aria-hidden="true"></span>
+            <Server size={14} />
             <span>ENTERPRISE &amp; DATA CENTER PORTFOLIO</span>
           </div>
           <h2 className="compo-server-title">
-            Enterprise Server Parts &amp; <span className="compo-title-highlight">Compute Infrastructure</span>
+            Enterprise Server Parts &amp; <span className="compo-server-title-gradient">Compute Infrastructure</span>
           </h2>
           <p className="compo-server-desc">
             Direct global allocation and immediate dispatch for hyperscale data center hardware. 
@@ -53,18 +54,27 @@ export default function ServerPartsSection({ onOpenQuote, onOpenSearch }) {
 
           {/* Quick Category Filter Tabs */}
           <div className="compo-server-filter-tabs" role="tablist">
-            {filterTabs.map(tab => (
-              <button
-                key={tab.id}
-                className={`compo-server-tab-btn ${activeFilter === tab.id ? 'active' : ''}`}
-                onClick={() => setActiveFilter(tab.id)}
-                role="tab"
-                aria-selected={activeFilter === tab.id}
-              >
-                <span>{tab.label}</span>
-                <span className="compo-tab-count">{tab.count}</span>
-              </button>
-            ))}
+            {filterTabs.map(tab => {
+              const IconComp = tab.icon;
+              return (
+                <button
+                  key={tab.id}
+                  className={`compo-server-tab-btn ${activeFilter === tab.id ? 'active' : ''}`}
+                  onClick={() => setActiveFilter(tab.id)}
+                  role="tab"
+                  aria-selected={activeFilter === tab.id}
+                >
+                  <span className="compo-tab-icon-wrap">
+                    <IconComp size={15} />
+                  </span>
+                  <span className="compo-tab-label-group">
+                    <span className="compo-tab-main-label">{tab.label}</span>
+                    {tab.sub && <span className="compo-tab-sub-label">{tab.sub}</span>}
+                  </span>
+                  <span className="compo-tab-count">{tab.count}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
 

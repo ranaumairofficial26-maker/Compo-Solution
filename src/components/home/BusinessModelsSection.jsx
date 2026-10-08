@@ -157,17 +157,44 @@ export default function BusinessModelsSection({ onOpenQuote }) {
 
         {/* Informational Callout Bar */}
         <div className="compo-bm-assurance-strip reveal-on-scroll">
-          <div className="compo-assurance-item">
-            <ShieldCheck size={20} className="text-cyan-400" />
-            <span>100% Traceable CoC &amp; Test Lab Reports</span>
+          {/* Animated top shimmer beam */}
+          <div className="compo-assurance-beam" aria-hidden="true"></div>
+
+          <div className="compo-assurance-item compo-assurance-cyan">
+            <div className="compo-assurance-icon-wrap compo-icon-cyan">
+              <ShieldCheck size={20} />
+              <span className="compo-assurance-ping"></span>
+            </div>
+            <div className="compo-assurance-text">
+              <span className="compo-assurance-strong text-cyan-gradient">100% Traceable</span>
+              <span className="compo-assurance-sub">CoC &amp; Test Lab Reports</span>
+            </div>
           </div>
-          <div className="compo-assurance-item">
-            <Clock size={20} className="text-emerald-400" />
-            <span>2-4 Hour Rapid Valuation &amp; BOM Cost Analysis</span>
+
+          <div className="compo-assurance-divider" aria-hidden="true"></div>
+
+          <div className="compo-assurance-item compo-assurance-emerald">
+            <div className="compo-assurance-icon-wrap compo-icon-emerald">
+              <Clock size={20} />
+              <span className="compo-assurance-ping"></span>
+            </div>
+            <div className="compo-assurance-text">
+              <span className="compo-assurance-strong text-emerald-gradient">2-4 Hour Rapid</span>
+              <span className="compo-assurance-sub">Valuation &amp; BOM Cost Analysis</span>
+            </div>
           </div>
-          <div className="compo-assurance-item">
-            <FileText size={20} className="text-blue-400" />
-            <span>Strict NDA &amp; OEM Brand Channel Protection</span>
+
+          <div className="compo-assurance-divider" aria-hidden="true"></div>
+
+          <div className="compo-assurance-item compo-assurance-violet">
+            <div className="compo-assurance-icon-wrap compo-icon-violet">
+              <FileText size={20} />
+              <span className="compo-assurance-ping"></span>
+            </div>
+            <div className="compo-assurance-text">
+              <span className="compo-assurance-strong text-violet-gradient">Strict NDA</span>
+              <span className="compo-assurance-sub">&amp; OEM Brand Channel Protection</span>
+            </div>
           </div>
         </div>
 

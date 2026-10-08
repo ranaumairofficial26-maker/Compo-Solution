@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/variables.css';
 import './styles/global.css';
 import './styles/layout.css';
@@ -16,6 +16,20 @@ import useScrollReveal from './hooks/useScrollReveal';
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home'); // 'home' | 'team'
   
+  // Force page to always start from the top on refresh / initial mount
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+
+    const handleBeforeUnload = () => {
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }, []);
+
   // Global 60fps on-scroll reveal engine reacting to page switches
   useScrollReveal([currentPage]);
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
