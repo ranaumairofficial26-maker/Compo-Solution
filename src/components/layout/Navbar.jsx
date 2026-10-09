@@ -19,7 +19,10 @@ import {
   Users,
   Server,
   TrendingDown,
-  PackageCheck
+  PackageCheck,
+  Zap,
+  Microscope,
+  Award
 } from 'lucide-react';
 
 import Logo from '../common/Logo';
@@ -72,6 +75,7 @@ export default function Navbar({ onOpenQuote, onOpenSearch, currentPage = 'home'
       name: 'Business Models',
       hasDropdown: true,
       items: [
+        { label: '6 Main Business Pillars', desc: 'Shortage, PPV, BOM, Franchised, Scheduling, VMI', icon: Zap, href: '#main-business' },
         { label: 'EXCESS Inventory Recovery', desc: 'Lot liquidation, consignment, fast capital recovery', icon: PackageCheck, href: '#business-models' },
         { label: 'PPV Cost-Down Sourcing', desc: '10–35% BOM price reduction & hedge purchasing', icon: TrendingDown, href: '#business-models' },
       ]
@@ -80,17 +84,19 @@ export default function Navbar({ onOpenQuote, onOpenSearch, currentPage = 'home'
       name: 'About Us',
       hasDropdown: true,
       items: [
-        { label: 'Company Overview', desc: 'Our heritage, mission, and vision', icon: ShieldCheck },
+        { label: 'Company Overview & Milestones', desc: '23Y+ heritage (2003-2026), $400M+ sales', icon: ShieldCheck, href: '#company-overview' },
         { label: 'Meet Our Expert Team', desc: 'Executive leadership & sourcing desks', icon: Users, action: 'team' },
-        { label: 'Global Offices & Hubs', desc: 'Hong Kong, Shenzhen, Singapore & Europe', icon: Wifi },
+        { label: 'Global Offices & Hubs', desc: 'Hong Kong, Shenzhen, Singapore & Europe', icon: Wifi, href: '#about' },
       ]
     },
     {
       name: 'Quality',
       hasDropdown: true,
       items: [
-        { label: 'Quality Assurance System', desc: 'ISO 9001 & AS9120 Certified process', icon: ShieldCheck },
-        { label: 'Testing Lab & Inspection', desc: '3-tier Anti-Counterfeit Verification', icon: Activity },
+        { label: '8-Step QC Flow Pipeline', desc: 'Incoming receiving to international dispatch', icon: Activity, href: '#quality' },
+        { label: 'Material QC Inspection', desc: '8-step appearance & physical verification', icon: ShieldCheck, href: '#quality' },
+        { label: '8 Lab Testing Machines', desc: 'X-Ray, Decap, SEM & 3D Microscopy', icon: Microscope, href: '#quality' },
+        { label: 'ISO & Aerospace Certifications', desc: 'ISO 9001, 14001, 45001, 13485, AS9120', icon: Award, href: '#quality' },
       ]
     },
     {

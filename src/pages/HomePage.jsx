@@ -4,29 +4,17 @@ import {
   ArrowRight, 
   ShieldCheck, 
   Cpu, 
-  Layers, 
-  Radio, 
-  Cable, 
-  Sun, 
-  ToggleRight,
   CheckCircle2, 
   Zap, 
   Award, 
   Globe2, 
   Activity, 
-  FileCheck,
-  Building2,
-  Lock,
-  Sparkles,
-  Truck,
-  Users,
-  FileText,
-  Mail,
-  BarChart3,
-  CircleDot,
-  Plane,
-  ChevronLeft,
-  ChevronRight
+  Truck, 
+  Users, 
+  FileText, 
+  Mail, 
+  BarChart3, 
+  CircleDot
 } from 'lucide-react';
 
 import ValueProps from '../components/common/ValueProps';
@@ -35,7 +23,9 @@ import AnimatedNumber from '../components/common/AnimatedNumber';
 import useScrollReveal from '../hooks/useScrollReveal';
 import ServerPartsSection from '../components/home/ServerPartsSection';
 import BusinessModelsSection from '../components/home/BusinessModelsSection';
-import { productCategories, testingProcedures, qualityCertifications, industrySolutions } from '../data/mockData';
+import MainBusinessPillars from '../components/home/MainBusinessPillars';
+import QualityControlSystem from '../components/home/QualityControlSystem';
+import CompanyMilestonesTimeline from '../components/home/CompanyMilestonesTimeline';
 
 export default function HomePage({ onOpenQuote, onOpenSearch, onSearchSubmit }) {
   // Activate silky 60fps on-scroll reveal animations
@@ -122,15 +112,6 @@ export default function HomePage({ onOpenQuote, onOpenSearch, onSearchSubmit }) 
     } else {
       onOpenSearch();
     }
-  };
-
-  const categoryIcons = {
-    semiconductors: Cpu,
-    passive: Layers,
-    electromechanical: ToggleRight,
-    connectors: Cable,
-    optoelectronics: Sun,
-    sensors: Radio
   };
 
   return (
@@ -446,14 +427,6 @@ export default function HomePage({ onOpenQuote, onOpenSearch, onSearchSubmit }) 
       </section>
 
       {/* =========================================================================
-          SERVER PARTS (CPU, MEMORY, SSD, HDD, GPU, NIC)
-         ========================================================================= */}
-      <ServerPartsSection 
-        onOpenQuote={onOpenQuote} 
-        onOpenSearch={onOpenSearch} 
-      />
-
-      {/* =========================================================================
           WHY COMPO SECTION (MATCHES SCREENSHOT)
          ========================================================================= */}
       <section className="compo-why-section" id="about">
@@ -466,14 +439,13 @@ export default function HomePage({ onOpenQuote, onOpenSearch, onSearchSubmit }) 
         {/* Top Wave Curve */}
         <div className="compo-why-curve-top">
           <svg viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <path d="M0,48 C480,0 960,0 1440,48 L1440,0 L0,0 Z" fill="#d8eaf9" />
+            <path d="M0,48 C480,0 960,0 1440,48 L1440,0 L0,0 Z" fill="#ffffff" />
           </svg>
         </div>
 
         <div className="compo-container compo-why-container">
           
           <div className="compo-why-header text-center reveal-on-scroll">
-            <div className="compo-why-tag">WHY COMPO</div>
             <h2 className="compo-why-title">Why <span className="compo-why-title-accent">COMPO</span></h2>
             <p className="compo-why-desc">
               Compo Electronics delivers high-quality semiconductor products and reliable services, empowering global industries through expertise, integrity, and long-term partnerships.
@@ -511,7 +483,7 @@ export default function HomePage({ onOpenQuote, onOpenSearch, onSearchSubmit }) 
                  </div>
                  <h3 className="compo-why-card-title">Proven Semiconductor Expertise</h3>
                  <p className="compo-why-card-desc">
-                   <strong style={{ color: '#00f0ff', fontWeight: 700 }}><AnimatedNumber value="21+" /></strong> years of excellence in IC trading, backed by <strong style={{ color: '#00f0ff', fontWeight: 700 }}><AnimatedNumber value="300+" /></strong> professionals committed to driving global impact.
+                   <strong style={{ color: '#00f0ff', fontWeight: 700 }}><AnimatedNumber value="23+" /></strong> years of excellence in IC distribution, backed by <strong style={{ color: '#00f0ff', fontWeight: 700 }}><AnimatedNumber value="200+" /></strong> professionals committed to driving global impact.
                  </p>
                </div>
             </div>
@@ -522,145 +494,42 @@ export default function HomePage({ onOpenQuote, onOpenSearch, onSearchSubmit }) 
         {/* Bottom Wave Curve */}
         <div className="compo-why-curve-bottom">
           <svg viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <path d="M0,0 C480,48 960,48 1440,0 L1440,48 L0,48 Z" fill="#edf6fd" />
+            <path d="M0,0 C480,48 960,48 1440,0 L1440,48 L0,48 Z" fill="#030c22" />
           </svg>
         </div>
       </section>
 
       {/* =========================================================================
-          ZERO DEFECT POLICY - IN-HOUSE ANTI-COUNTERFEIT INSPECTION LAB
+          MAIN BUSINESS SERVICES (SLIDE 05 - 6 CORE PILLARS)
          ========================================================================= */}
-      <section className="compo-section compo-quality-section" id="quality">
-        <div className="compo-container">
-          
-          <div className="compo-section-header text-center reveal-on-scroll">
-            <div className="compo-section-tag">ZERO DEFECT POLICY</div>
-            <h2 className="compo-section-title">In-House Anti-Counterfeit Inspection Lab</h2>
-            <p className="compo-section-desc max-w-2xl mx-auto">
-              Every single batch undergoes rigorous 4-step authentication and parametric testing to guarantee 100% genuine parts.
-            </p>
-          </div>
+      <MainBusinessPillars onOpenQuote={onOpenQuote} />
 
-          {/* 4-Step Testing Process */}
-          <div className="compo-testing-grid reveal-stagger">
-            {testingProcedures.map((proc, index) => (
-              <div key={index} className="compo-testing-card">
-                <div className="compo-step-number">
-                  <AnimatedNumber value={index + 1} prefix="0" />
-                </div>
-                <h4 className="compo-step-title">{proc.title}</h4>
-                <p className="compo-step-desc">{proc.desc}</p>
-                <div className="compo-step-indicator"></div>
-              </div>
-            ))}
-          </div>
-
-
-          {/* =========================================================================
-              LAB TESTING & QA PROTOCOLS SHOWCASE (MATCHES SCREENSHOT)
-             ========================================================================= */}
-          <div className="compo-lab-protocols-wrap">
-            <div className="compo-lab-header-wrap text-center reveal-on-scroll">
-              <h3 className="compo-lab-main-title">LAB TESTING & QA PROTOCOLS</h3>
-              <p className="compo-lab-main-desc">
-                Advanced metallurgical, optical, and radiographic inspection facilities ensuring zero-defect semiconductor distribution.
-              </p>
-            </div>
-
-            <div className="compo-lab-grid reveal-stagger">
-              {/* Card 1 */}
-              <div className="compo-lab-card">
-                <div className="compo-lab-img-box">
-                  <img src="/lab/lab-xray.jpg" alt="X-Ray Inspection" className="compo-lab-img" />
-                  <div className="compo-lab-badge">2D/3D Radiography</div>
-                </div>
-                <div className="compo-lab-card-body">
-                  <h4 className="compo-lab-card-title">X-Ray Inspection</h4>
-                  <p className="compo-lab-card-desc">
-                    High-resolution real-time X-ray inspection for internal bond wires, die integrity, void detection, and leadframe consistency.
-                  </p>
-                </div>
-              </div>
-
-              {/* Card 2 */}
-              <div className="compo-lab-card">
-                <div className="compo-lab-img-box">
-                  <img src="/lab/lab-decapsulation.jpg" alt="Decapsulation & Die Analysis" className="compo-lab-img" />
-                  <div className="compo-lab-badge">Die Verification</div>
-                </div>
-                <div className="compo-lab-card-body">
-                  <h4 className="compo-lab-card-title">Decapsulation & Die Analysis</h4>
-                  <p className="compo-lab-card-desc">
-                    Chemical and laser decapsulation to verify authentic manufacturer logos, mask codes, and wafer die markings.
-                  </p>
-                </div>
-              </div>
-
-              {/* Card 3 */}
-              <div className="compo-lab-card">
-                <div className="compo-lab-img-box">
-                  <img src="/lab/lab-chemical.jpg" alt="Heated Chemical & Surface Testing" className="compo-lab-img" />
-                  <div className="compo-lab-badge">Anti-Counterfeit</div>
-                </div>
-                <div className="compo-lab-card-body">
-                  <h4 className="compo-lab-card-title">Decapsulation & Chemical Testing</h4>
-                  <p className="compo-lab-card-desc">
-                    Solvent and scraping tests to detect package sanding, remarking, blacktopping, and counterfeit top-coating.
-                  </p>
-                </div>
-              </div>
-
-              {/* Card 4 */}
-              <div className="compo-lab-card">
-                <div className="compo-lab-img-box">
-                  <img src="/lab/lab-functional.jpg" alt="Functional Parameter Testing" className="compo-lab-img" />
-                  <div className="compo-lab-badge">Electrical QA</div>
-                </div>
-                <div className="compo-lab-card-body">
-                  <h4 className="compo-lab-card-title">Functional Parameter Testing</h4>
-                  <p className="compo-lab-card-desc">
-                    Full electrical characterization, pin threshold voltage, and timing measurements against original datasheets.
-                  </p>
-                </div>
-              </div>
-
-              {/* Card 5 */}
-              <div className="compo-lab-card">
-                <div className="compo-lab-img-box">
-                  <img src="/lab/lab-solderability.jpg" alt="Solderability & Pin Analysis" className="compo-lab-img" />
-                  <div className="compo-lab-badge">Solder Integrity</div>
-                </div>
-                <div className="compo-lab-card-body">
-                  <h4 className="compo-lab-card-title">Solderability & Pin Analysis</h4>
-                  <p className="compo-lab-card-desc">
-                    Dip and look solderability testing to verify pin coplanarity, lead oxidation, and reliable solder wettability.
-                  </p>
-                </div>
-              </div>
-
-              {/* Card 6 */}
-              <div className="compo-lab-card">
-                <div className="compo-lab-img-box">
-                  <img src="/lab/lab-visual.jpg" alt="Visual & Optical Microscopy" className="compo-lab-img" />
-                  <div className="compo-lab-badge">Optical QA</div>
-                </div>
-                <div className="compo-lab-card-body">
-                  <h4 className="compo-lab-card-title">Visual & Optical Microscopy</h4>
-                  <p className="compo-lab-card-desc">
-                    High-magnification digital microscope inspection for packaging integrity, pin condition, and laser marking verification.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
+      {/* =========================================================================
+          SERVER PARTS (CPU, MEMORY, SSD, HDD, GPU, NIC)
+         ========================================================================= */}
+      <ServerPartsSection 
+        onOpenQuote={onOpenQuote} 
+        onOpenSearch={onOpenSearch} 
+      />
 
       {/* =========================================================================
           EXCESS & PPV BUSINESS MODELS
          ========================================================================= */}
       <BusinessModelsSection 
+        onOpenQuote={onOpenQuote} 
+      />
+
+      {/* =========================================================================
+          QUALITY CONTROL SYSTEM (SLIDES 03, 09, 10, 11, 12)
+         ========================================================================= */}
+      <QualityControlSystem 
+        onOpenQuote={onOpenQuote} 
+      />
+
+      {/* =========================================================================
+          COMPANY OVERVIEW & HISTORICAL MILESTONES (SLIDES 02, 04)
+         ========================================================================= */}
+      <CompanyMilestonesTimeline 
         onOpenQuote={onOpenQuote} 
       />
 
