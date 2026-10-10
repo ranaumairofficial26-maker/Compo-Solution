@@ -256,15 +256,15 @@ export default function HomePage({ onOpenQuote, onOpenSearch, onSearchSubmit }) 
               </div>
               
               <h2 className="compo-what-we-do-title">
-                More Than Component Supply — <span className="compo-title-highlight-dark">Powering Global Tech</span>
+                Independent Electronic Distribution — <span className="compo-title-highlight-dark">Powering Global Tech</span>
               </h2>
 
               <p className="compo-industry-lead-text">
-                COMPO Electronics is a premier global independent distributor of high-reliability semiconductors and critical electronic components. We eliminate supply bottlenecks, accelerate production lifecycles, and deliver authentic factory-sealed allocations to tier-1 aerospace, automotive, medical, and hyperscale data center innovators.
+                Compo Electronics Inc. is a leader in the independent electronic distribution sector. We serve OEMs and contract manufacturers on a worldwide basis. Our clientele includes top-level EMS &amp; OEM accounts.
               </p>
 
               <p className="compo-industry-sub-text">
-                With real-time access to 50M+ verified line items and in-house ISO 9001:2015 &amp; AS9120B certified QA testing laboratories, we subject every reel and tray to rigorous parametric testing, X-ray die inspection, and strict anti-counterfeit protocols. Whether managing rapid shortage procurement or surplus asset recovery, COMPO connects your production line with guaranteed zero-defect components.
+                With a strong emphasis on serving world-class customers with expertise and efficiency, we specialize in allocated and hard-to-find semiconductors and integrated circuits. We stock a broad line of devices and source millions of products through our established worldwide network. The quality of our parts, the value that we provide, and the service that we deliver, help to make us a partner for life with our customers. We think one-step ahead for you!
               </p>
 
               {/* 4 Quick Industry Badges */}

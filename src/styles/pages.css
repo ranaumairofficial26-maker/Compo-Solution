@@ -5563,6 +5563,340 @@
 }
 
 /* =========================================================================
+   OUR COMMITMENT TO EXCELLENCE & MISSION / VISION
+   ========================================================================= */
+.compo-excellence-mission-hub {
+  margin-top: 56px;
+  background: linear-gradient(145deg, #091730 0%, #030a1a 100%);
+  border: 1.5px solid rgba(0, 240, 255, 0.35);
+  border-radius: 24px;
+  padding: 42px 36px;
+  box-shadow: 0 20px 50px -10px rgba(0, 10, 30, 0.8), 0 0 30px rgba(0, 240, 255, 0.1);
+  color: #e2e8f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.compo-title-highlight-cyan {
+  background: linear-gradient(135deg, #00f0ff 0%, #38bdf8 50%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-weight: 800;
+  filter: drop-shadow(0 2px 10px rgba(0, 240, 255, 0.4));
+}
+
+.compo-excellence-header {
+  max-width: 760px;
+  margin: 0 auto 38px;
+}
+
+.compo-excellence-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: #00f0ff;
+  background: rgba(0, 240, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  padding: 5px 16px;
+  border-radius: 9999px;
+  margin-bottom: 14px;
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.15);
+}
+
+.compo-excellence-title {
+  font-family: var(--font-heading);
+  font-size: 34px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
+.compo-excellence-sub {
+  font-size: 15px;
+  color: #94a3b8;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.compo-commitments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 40px;
+}
+
+.compo-commitment-card {
+  position: relative;
+  background: rgba(13, 27, 56, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(0, 240, 255, 0.2);
+  border-radius: 20px;
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.compo-commitment-card:hover {
+  transform: translateY(-6px);
+  border-color: #00f0ff;
+  background: rgba(15, 34, 72, 0.95);
+  box-shadow: 0 16px 36px rgba(0, 210, 255, 0.25), 0 0 20px rgba(0, 240, 255, 0.15);
+}
+
+.compo-commitment-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.compo-commitment-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(0, 240, 255, 0.12);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  color: #00f0ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.18);
+}
+
+.compo-commitment-card:hover .compo-commitment-icon-wrap {
+  transform: scale(1.1) rotate(4deg);
+  background: #00f0ff;
+  color: #030a1c;
+  box-shadow: 0 0 22px rgba(0, 240, 255, 0.7);
+}
+
+.compo-commitment-badge {
+  font-size: 11px;
+  font-weight: 800;
+  color: #00f0ff;
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.compo-commitment-card-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 8px;
+  letter-spacing: -0.2px;
+}
+
+.compo-commitment-card-desc {
+  font-size: 13.5px;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+.compo-partner-mission-row {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 24px;
+}
+
+.compo-partner-benefits-box {
+  background: rgba(10, 22, 48, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(0, 240, 255, 0.3);
+  border-radius: 22px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+}
+
+.compo-partner-box-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.18);
+  padding-bottom: 18px;
+}
+
+.compo-partner-icon-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(0, 240, 255, 0.12);
+  border: 1.5px solid rgba(0, 240, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+}
+
+.compo-partner-box-title {
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 4px;
+  letter-spacing: -0.2px;
+}
+
+.compo-partner-box-sub {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.compo-partner-benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  margin-bottom: 26px;
+}
+
+.compo-partner-benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.compo-benefit-check-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(0, 240, 255, 0.12);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  color: #00f0ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+.compo-partner-cta-btn {
+  width: 100%;
+  justify-content: center;
+  padding: 13px 20px;
+  font-size: 14.5px;
+}
+
+.compo-mission-vision-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.compo-mv-card {
+  position: relative;
+  background: rgba(10, 22, 48, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(0, 240, 255, 0.25);
+  border-radius: 20px;
+  padding: 26px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  transition: all 0.35s ease;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.compo-mv-card:hover {
+  border-color: #00f0ff;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 210, 255, 0.25);
+}
+
+.compo-mv-icon-badge {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: rgba(0, 240, 255, 0.12);
+  border: 1.5px solid rgba(0, 240, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.2);
+}
+
+.compo-mv-content {
+  flex: 1;
+}
+
+.compo-mv-label {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.6px;
+  color: #00f0ff;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.compo-mv-label-vision {
+  color: #38bdf8;
+}
+
+.compo-mv-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.compo-mv-desc {
+  font-size: 13.5px;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.compo-mv-glow-bar {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00f0ff, transparent);
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.compo-mv-card:hover .compo-mv-glow-bar {
+  opacity: 1;
+  height: 3px;
+}
+
+/* =========================================================================
    RESPONSIVE BREAKPOINTS FOR NEW PRESENTATION SECTIONS
    ========================================================================= */
 @media (max-width: 1200px) {
@@ -5577,6 +5911,9 @@
   .compo-iso-certs-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+  .compo-commitments-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 1024px) {
@@ -5584,6 +5921,9 @@
     grid-template-columns: repeat(2, 1fr);
   }
   .compo-certs-lower-grid {
+    grid-template-columns: 1fr;
+  }
+  .compo-partner-mission-row {
     grid-template-columns: 1fr;
   }
 }
@@ -5594,18 +5934,24 @@
   .compo-qc-pipeline-grid,
   .compo-material-steps-grid,
   .compo-equipment-grid,
-  .compo-iso-certs-grid {
+  .compo-iso-certs-grid,
+  .compo-commitments-grid {
     grid-template-columns: 1fr;
   }
   .compo-mb-title,
   .compo-qc-title,
-  .compo-milestones-title {
-    font-size: 28px;
+  .compo-milestones-title,
+  .compo-excellence-title {
+    font-size: 26px;
   }
   .compo-mb-bottom-callout,
-  .compo-active-milestone-panel {
+  .compo-active-milestone-panel,
+  .compo-rm-spotlight-panel {
     flex-direction: column;
     align-items: flex-start;
+  }
+  .compo-excellence-mission-hub {
+    padding: 26px 18px;
   }
   .compo-qc-flow-container,
   .compo-qc-material-container,

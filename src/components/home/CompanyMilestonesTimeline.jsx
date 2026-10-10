@@ -12,7 +12,13 @@ import {
   ShieldCheck,
   Zap,
   CheckCircle2,
-  Layers
+  Layers,
+  Target,
+  Eye,
+  Briefcase,
+  Cpu,
+  Truck,
+  FileCheck
 } from 'lucide-react';
 import { companyMilestones, companyOverviewStats } from '../../data/compoCorporateData';
 import AnimatedNumber from '../common/AnimatedNumber';
@@ -71,21 +77,73 @@ export default function CompanyMilestonesTimeline({ onOpenQuote }) {
     }
   };
 
+  const commitments = [
+    {
+      title: 'Comprehensive Product Portfolio',
+      desc: 'Offering a wide range of components, including Integrated Circuits (ICs), Relays, Switches, MOSFETs, and more.',
+      icon: Cpu,
+      badge: 'Extensive Inventory',
+      color: 'cyan'
+    },
+    {
+      title: 'Industry Expertise',
+      desc: 'Deep knowledge and experience in various industries, such as automotive, power, healthcare, and new energy.',
+      icon: Briefcase,
+      badge: '20+ Years Know-How',
+      color: 'blue'
+    },
+    {
+      title: 'Robust Supply Chain',
+      desc: 'A reliable supply chain network to ensure timely delivery of components.',
+      icon: Truck,
+      badge: '99.5% On-Time',
+      color: 'emerald'
+    },
+    {
+      title: 'Value Added Services',
+      desc: 'Value added services like spot buying, obsolete part procurement, and BOM optimization.',
+      icon: Zap,
+      badge: 'Full Turnkey',
+      color: 'amber'
+    },
+    {
+      title: 'Global Reach',
+      desc: 'A global presence with offices and warehouses strategically located worldwide.',
+      icon: Globe2,
+      badge: '5,000+ Partners',
+      color: 'sky'
+    },
+    {
+      title: 'Quality Assurance',
+      desc: 'Certified to ISO 9001, ISO 14001, ISO 13485, ISO 27001, ISO 28000, ISO 45001, AS9120, and C-TPAT.',
+      icon: ShieldCheck,
+      badge: 'Multi-ISO Certified',
+      color: 'purple'
+    }
+  ];
+
+  const partnerBenefits = [
+    'Accelerate your time to market',
+    'Optimize your supply chain',
+    'Reduce costs and improve efficiency',
+    'Access the latest technologies and innovations'
+  ];
+
   return (
     <section className="compo-milestones-section" id="company-overview">
       <div className="compo-container">
 
-        {/* Section Header with Official Stats Cards from Slide 02 */}
+        {/* Section Header with Official Corporate Overview from Slide 02 */}
         <div className="compo-milestones-header text-center reveal-on-scroll">
           <div className="compo-milestones-tag">
             <Calendar size={14} className="text-cyan-400" />
-            <span>23-YEAR HERITAGE &amp; GLOBAL EXPANSION</span>
+            <span>23-YEAR HERITAGE &amp; GLOBAL SUPPLY CHAIN PARTNER</span>
           </div>
           <h2 className="compo-milestones-title">
             Company Overview &amp; <span className="compo-milestones-title-gradient">Historical Milestones</span>
           </h2>
           <p className="compo-milestones-desc">
-            Founded in Hong Kong in 2003, COMPO Electronics has grown into an international semiconductor distribution powerhouse with $400M+ in annual sales and 20+ global service hubs.
+            Founded in 2003, <strong>Compo Electronics Asia Limited</strong> has emerged as a leading global distributor and supply chain partner for electronic components. With over two decades of industry experience, we have established strong relationships with top manufacturers like <strong>NXP, TE, ZEISS, and Preci Dip</strong>.
           </p>
 
           {/* Official Slide 02 Company Overview Stats Grid */}
@@ -167,7 +225,7 @@ export default function CompanyMilestonesTimeline({ onOpenQuote }) {
           {/* Interactive Horizontal Cards Track */}
           <div className="compo-roadmap-track-container">
             <div className="compo-roadmap-track" ref={trackRef}>
-              {filteredMilestones.map((m, idx) => {
+              {filteredMilestones.map((m) => {
                 const isSelected = selectedYear === m.year;
                 const IconComponent = iconMap[m.icon] || Sparkles;
 
@@ -259,6 +317,119 @@ export default function CompanyMilestonesTimeline({ onOpenQuote }) {
                 <ArrowRight size={14} />
               </button>
             </div>
+          </div>
+
+        </div>
+
+        {/* =========================================================================
+            OUR COMMITMENT TO EXCELLENCE & MISSION / VISION SHOWCASE
+           ========================================================================= */}
+        <div className="compo-excellence-mission-hub reveal-on-scroll">
+          
+          {/* Header */}
+          <div className="compo-excellence-header text-center">
+            <div className="compo-excellence-tag">
+              <span className="compo-tag-live-dot" aria-hidden="true"></span>
+              <span>CORE COMMITMENTS &amp; STRATEGIC VISION</span>
+            </div>
+            <h3 className="compo-excellence-title">
+              Our Commitment to <span className="compo-title-highlight-cyan">Excellence</span>
+            </h3>
+            <p className="compo-excellence-sub">
+              Empowering global industries with verified semiconductor reliability, comprehensive inventory, and world-class customer service.
+            </p>
+          </div>
+
+          {/* 6 Commitments Grid */}
+          <div className="compo-commitments-grid reveal-stagger">
+            {commitments.map((item, idx) => {
+              const ItemIcon = item.icon;
+              return (
+                <div key={idx} className={`compo-commitment-card compo-com-accent-${item.color}`}>
+                  <div className="compo-commitment-card-top">
+                    <div className="compo-commitment-icon-wrap">
+                      <ItemIcon size={22} />
+                    </div>
+                    <span className="compo-commitment-badge">{item.badge}</span>
+                  </div>
+                  <h4 className="compo-commitment-card-title">{item.title}</h4>
+                  <p className="compo-commitment-card-desc">{item.desc}</p>
+                  <div className="compo-commitment-glow"></div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* 2-Column Bottom Box: Partner Benefits (Left) & Mission / Vision (Right) */}
+          <div className="compo-partner-mission-row">
+            
+            {/* Left: Partner With Compo Benefits */}
+            <div className="compo-partner-benefits-box">
+              <div className="compo-partner-box-header">
+                <div className="compo-partner-icon-badge">
+                  <ShieldCheck size={26} className="text-cyan-400" />
+                </div>
+                <div>
+                  <h4 className="compo-partner-box-title">Partner with Compo Electronics Asia Limited to:</h4>
+                  <p className="compo-partner-box-sub">Drive measurable supply chain advantages and high-yield operational efficiency</p>
+                </div>
+              </div>
+
+              <div className="compo-partner-benefits-list">
+                {partnerBenefits.map((b, bIdx) => (
+                  <div key={bIdx} className="compo-partner-benefit-item">
+                    <div className="compo-benefit-check-circle">
+                      <CheckCircle2 size={16} />
+                    </div>
+                    <span>{b}</span>
+                  </div>
+                ))}
+              </div>
+
+              <button 
+                className="compo-btn compo-btn-primary compo-btn-glow compo-partner-cta-btn"
+                onClick={onOpenQuote}
+              >
+                <span>Initiate Sourcing Partnership</span>
+                <ArrowRight size={16} />
+              </button>
+            </div>
+
+            {/* Right: Mission & Vision Cards */}
+            <div className="compo-mission-vision-col">
+              
+              {/* Mission Card */}
+              <div className="compo-mv-card compo-mission-card">
+                <div className="compo-mv-icon-badge">
+                  <Target size={24} className="text-cyan-400" />
+                </div>
+                <div className="compo-mv-content">
+                  <span className="compo-mv-label">OUR MISSION</span>
+                  <h4 className="compo-mv-title">Trusted Partner for Sustainable Value</h4>
+                  <p className="compo-mv-desc">
+                    To be the most trusted and reliable partner for our customers by providing innovative solutions, exceptional service, and superior value.
+                  </p>
+                </div>
+                <div className="compo-mv-glow-bar"></div>
+              </div>
+
+              {/* Vision Card */}
+              <div className="compo-mv-card compo-vision-card">
+                <div className="compo-mv-icon-badge">
+                  <Eye size={24} className="text-blue-400" />
+                </div>
+                <div className="compo-mv-content">
+                  <span className="compo-mv-label compo-mv-label-vision">OUR VISION</span>
+                  <h4 className="compo-mv-title">Global Leadership in Semiconductor Distribution</h4>
+                  <p className="compo-mv-desc">
+                    To be a global leader in the distribution of electronic components, empowering our customers to succeed.
+                  </p>
+                </div>
+                <div className="compo-mv-glow-bar"></div>
+              </div>
+
+            </div>
+
           </div>
 
         </div>
